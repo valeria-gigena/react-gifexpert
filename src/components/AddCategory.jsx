@@ -8,22 +8,20 @@ const AddCategory = ({ onNewCategory }) => {
 
     const onSubmitForm = (event) => {
         event.preventDefault();
-        if (inputValue.trim().length==0) return;
+        if (inputValue.trim().length == 0) return;
         onNewCategory(inputValue);
-        // addNew(categories => [inputValue, ...categories]);
+        setInputValue('')
     }
 
     return (
-        <>
-            <form onSubmit={onSubmitForm}>
-                <input
-                    type='text'
-                    onChange={(event) => onInputChange(event)}
-                    placeholder="Buscar en Giphy"
-                    value={inputValue}></input>
-                <button type='submit'>Agregar</button>
-            </form>
-        </>
+        <form onSubmit={onSubmitForm}>
+            <input
+                type='text'
+                onChange={(event) => onInputChange(event)}
+                placeholder="Buscar en Giphy"
+                value={inputValue}></input>
+           
+        </form>
     )
 }
 

@@ -1,19 +1,29 @@
-import React from 'react'
-import GifGridItem from './GifGridItem'
 
-const GifGrid = ({ categories }) => {
+import GifItem from './GifItem';
+import { useFetchGifs } from '../hooks/useFetchGifs';
+
+
+const GifGrid = ({ category }) => {
+
+
+  const { images, isLoading } = useFetchGifs(category);
+
   return (
-
-    <ol>
-      {categories.map(item => {
-        return <GifGridItem category={item}></GifGridItem>
-        // return <li key={item}>{item}</li> 
-      })
-
-
+    <>
+      <h3>{category}</h3>
+      {
+        isLoading && (<h2>Cargando ...</h2>)
       }
-    </ol>
+      <div className='card-grid'>
+        {
+          images.map((image) =>
+            <GifItem
+              {...image}
+              key={image.id} />)
+        }
 
+      </div>
+    </>
   )
 }
 
