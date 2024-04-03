@@ -1,12 +1,16 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
-export const Giftem = ({ title, id, url }) => {
+export const GifItem = ({ title, id, url }) => {
     return (
         <div className='card' key={id}>
-            <img src={url} />
+            <img src={url} alt={title}/>
             <p>{title}</p>
         </div>
     )
 }
 
-export default Giftem
+GifItem.propTypes = {
+    title: PropTypes.string.isRequired,
+    url: PropTypes.string.isRequired,
+}
