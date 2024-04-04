@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import { AddCategory, GifGrid } from './components'
 
-const GifExpertApp = () => {
+export const GifExpertApp = () => {
 
   const [categories, setCategories] = useState(['Friends'])
   const onAddCategory = (value) => {
@@ -13,12 +13,8 @@ const GifExpertApp = () => {
     <>
       <h1>GitExpertApp</h1>
       <AddCategory onNewCategory={event => onAddCategory(event)} />
-      {
-        categories.map((item => (<GifGrid key={item} category={item} />)))
-      }
-
+      { categories.map((item => (<GifGrid key={item} category={item} />)))  }
     </>
   )
 }
 
-export default GifExpertApp
